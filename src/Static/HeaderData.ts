@@ -2,8 +2,6 @@ import pockemons from "../svg/MenuIcon.png";
 import coach from "../svg/MenuIcon(1).png";
 import rating from "../svg/MenuIcon(2).png";
 
-
-
 const imagesData = [
     {
         id: "0",

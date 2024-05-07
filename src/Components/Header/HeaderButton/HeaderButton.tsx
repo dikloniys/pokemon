@@ -1,6 +1,6 @@
 
 import React, { FC } from "react";
-import { IHeaderButtonProps } from "../interface";
+import { IHeaderButtonProps } from "../../../interface";
 import * as styled from "./HeaderButton.style";
 
 const HeaderButton: FC<IHeaderButtonProps> = ({
