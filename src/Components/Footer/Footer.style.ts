@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { baseTheme } from "../../style/baseTheme";
 
 export const Footer = styled.div`
-    display: block;
-    @media (max-width: 1240px) {
+    @media ( max-width:${baseTheme.media.medium}) {
         display: none;
     }
 `;
@@ -14,6 +13,13 @@ export const Container = styled.div`
     border-top: 2px solid ${baseTheme.colors.main};
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @media ( max-width:${baseTheme.media.extraLarge}) {
+        max-width: ${baseTheme.with.laptop};
+    }
+    @media ( max-width:${baseTheme.media.large}) {
+        max-width: ${baseTheme.with.tablett};
+    }
 `;
 export const Text = styled.div`
     font-weight: 500;
@@ -23,6 +29,7 @@ export const Text = styled.div`
 `;
 export const Wrapper = styled.div`
     display: flex;
+    align-items: center;
 `;
 export const Icon = styled.div`
     margin-right: 8px;

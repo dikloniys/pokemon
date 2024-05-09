@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import * as styled from "./Header.style";
-import FetchData from "../../Api/FetchData";
 import { ButtonType } from "../../constants";
 import HeaderButton from "./HeaderButton/HeaderButton";
-import Pockemons from "../../svg/MenuIcon.png";
-import Coach from "../../svg/Menuicon(1).png";
-import Rating from "../../svg/MenuIcon(2).png";
+import HeaderMobilButton from "./HeaderMobilButton/HeaderMobilButton";
+import Pockemons from "../../svg/Ball.png";
+import Coach from "../../svg/Hat.png";
+import Rating from "../../svg/Raiting.png";
 import Avatar from "../../svg/Avatar.png";
 import { ReactComponent as Entrance } from "../../svg/LogIn.svg";
-import  { ReactComponent as Vs }  from "../../svg/VS.svg";
+import { ReactComponent as Vs } from "../../svg/VS.svg";
+import  { ReactComponent as PockemonsPhone }  from "../../svg/Pockemons.svg";
+import  { ReactComponent as CoachPhone }  from "../../svg/Coach.svg";
+import  { ReactComponent as RatingPhone }  from "../../svg/Rating.svg";
+import  { ReactComponent as Premium }  from "../../svg/Premium.svg";
 
 export const Header = () => {
     const [activeButton, setActiveButton] = useState<ButtonType>(ButtonType.pockemons);
@@ -16,9 +20,6 @@ export const Header = () => {
     const handleButtonClick = (button: ButtonType) => {
         setActiveButton(button);
     };
-    
-    const apiData = FetchData({ url: 'https://lavka.pokemonbattle-stage.me/get_avatars' });
-    console.log(apiData);
 
     return (
         <styled.Header>
@@ -80,6 +81,46 @@ export const Header = () => {
                                 </styled.Button>
                     </styled.Personal>
                 </styled.Wrapper>
+                <styled.MobilWrap>
+                    <styled.MobilNav>
+                        <HeaderMobilButton
+                            text="Покемоны"
+                            handleButtonClick={handleButtonClick}
+                            ButtonType={ButtonType.pockemons}
+                            activeButton={activeButton}
+                            icon={PockemonsPhone}
+                        />
+                        <HeaderMobilButton
+                            text="Тренеры"
+                            handleButtonClick={handleButtonClick}
+                            ButtonType={ButtonType.coach}
+                            activeButton={activeButton}
+                            icon={CoachPhone}
+                        />
+                        <HeaderMobilButton
+                            text="Рейтинг"
+                            handleButtonClick={handleButtonClick}
+                            ButtonType={ButtonType.rating}
+                            activeButton={activeButton}
+                            icon={RatingPhone}
+                        />
+                        <styled.MobilButton>
+                            <styled.MobilSvg>
+                                <img src={Avatar} alt="" />
+                                <styled.MobilPremiumMarker>
+                                    <Premium />
+                                </styled.MobilPremiumMarker>
+                            </styled.MobilSvg>
+                            <styled.MobilButtonText>
+                                Профиль
+                            </styled.MobilButtonText>
+                        </styled.MobilButton>
+                    </styled.MobilNav>
+                    <styled.MobilSafeZone>
+                        <styled.SafeZoneButton>
+                        </styled.SafeZoneButton>
+                    </styled.MobilSafeZone>
+                </styled.MobilWrap>
             </styled.Container>
         </styled.Header>
     );

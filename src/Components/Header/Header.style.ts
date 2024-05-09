@@ -2,15 +2,90 @@ import styled from "styled-components";
 import { baseTheme } from "../../style/baseTheme";
 
 export const Header = styled.header`
+    margin-bottom: ${baseTheme.with.marginMain};
     
 `;
 export const Container = styled.div`
     max-width: ${baseTheme.with.desktop};
     margin: 0 auto;
+    @media ( max-width: ${baseTheme.media.extraLarge} ) {
+        max-width: ${baseTheme.with.laptop};
+    }
+    @media ( max-width: ${baseTheme.media.large} ) {
+        max-width: ${baseTheme.with.tablett};
+    }
+    @media ( max-width: ${baseTheme.media.medium} ) {
+        max-width: ${baseTheme.with.handy};
+    }
 `;
 export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    @media ( max-width:${baseTheme.media.medium}) {
+        display: none;
+    }
+`;
+export const MobilWrap = styled.div`
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0px);
+    @media ( max-width: ${baseTheme.media.medium} ) {
+        display: block;
+    }
+`;
+export const MobilNav = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 25.33px;
+    padding: 12px 30px 0 ;
+    border-radius: 12px 12px 0px 0px;
+    background: ${baseTheme.colors.main};
+`;
+export const MobilButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 56px;
+    min-height: 39px;
+`;
+export const MobilSvg = styled.div`
+    width: 24px;
+    height: 24px;
+    position: relative;
+    & img{
+        border-radius: 50%;
+    }
+`;
+export const MobilButtonText = styled.div`
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 9px;
+`;
+export const MobilPremiumMarker = styled.div`
+    position: absolute;
+    height: 12px;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 0);
+`
+export const MobilSafeZone = styled.div`
+    padding: 24px 0 5px;
+    background: ${baseTheme.colors.main};
+    display:flex;
+    justify-content: center;
+`;
+export const SafeZoneButton = styled.div`
+    width: 96px;
+    height: 3px;
+    border-radius: 2px;
+    background: ${baseTheme.colors.safeZone};
 `;
 export const Wrap = styled.div`
     display: flex;
@@ -26,9 +101,10 @@ export const Button = styled.div`
     border: 1px solid transparent;
     background: ${baseTheme.colors.main};
     min-width: 60px;
-    &:hover{
-        border: 1px solid ${baseTheme.colors.hover};
-        color: ${baseTheme.colors.hover};
+    @media ( min-width: ${baseTheme.media.medium} ) {
+        &:hover{
+            border: 1px solid ${baseTheme.colors.hover};
+        }
     }
 `;
 export const WrapStarter = styled.div`

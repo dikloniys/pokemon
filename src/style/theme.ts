@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import InM from "../Fonts/Inter-Medium.otf";
 import InR from "../Fonts/Inter-Regular.otf";
 import suisseintl from "../Fonts/suisseintl-regular.otf";
+import Pokemon from "../Fonts/pokemon-classic-regular1.ttf";
 import { baseTheme } from "./baseTheme";
 
 const GlobalStyle = createGlobalStyle`
@@ -16,7 +17,12 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 400;
     }
   @font-face {
-      font-family: 'Inter';
+      font-family: 'Pokemon';
+      src: url(${Pokemon}) format('truetype');
+      font-weight: 400;
+    }
+  @font-face {
+      font-family: 'suisseintl';
       src: url(${suisseintl}) format('truetype');
       font-weight: 500;
     }
@@ -30,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${baseTheme.colors.substrate};
+    text-transform: capitalize;
   }
   div {
     padding: 0;
